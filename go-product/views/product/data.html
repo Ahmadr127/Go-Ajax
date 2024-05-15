@@ -1,0 +1,30 @@
+<style>
+    tr td button i {
+        font-size: 20px;
+    }
+</style>
+
+{{ $nomor := 0 }} {{ range .product }}
+<tr>
+    {{ $nomor = increment $nomor 1 }}
+    <td scope="row">{{ $nomor }}</td>
+    <td>{{ .NamaProduct }}</td>
+    <td>{{ .Harga }}</td>
+    <td>{{ .JumlahTerjual }}</td>
+    <td>{{ .Kota }}</td>
+    <td>{{ .Url }}</td>
+    <td>
+        <button
+            data-id="{{ .Id }}"
+            class="btn btn-danger btn-sm delete-product"
+        >
+            <i class="bi bi-trash-fill"></i>
+        </button>
+        <button data-id="{{ .Id }}" class="btn btn-success btn-sm edit-product">
+            <i class="bi bi-pencil-square"></i>
+        </button>
+    </td>
+</tr>
+{{ end }}
+
+
